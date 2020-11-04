@@ -9,6 +9,7 @@ class Product_Import
             'post_title'    => $data->name,
             'post_content'  => $data->description,
             'post_status'   => 'publish',
+            'post_type' => "product",
         );
         $price = str_replace('$', '', $data->price);
         $post_id = wp_insert_post($post_data);
@@ -33,6 +34,7 @@ class Product_Import
             'ID'    => $post_id,
             'post_content'  => $data->description,
             'post_title'    => $data->name,
+            'post_type' => "product",
         );
         wp_update_post( wp_slash($post_data) );
         $price = str_replace('$', '', $data->price);
