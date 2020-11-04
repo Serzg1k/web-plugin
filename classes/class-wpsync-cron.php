@@ -32,7 +32,17 @@ class Wpsync_Cron
 
     function get_products_cron()
     {
-        Wpsync_Webspark::get_instance()->get_cron_data();
+        $datas = json_decode(Wpsync_Webspark::get_instance()->get_api_data());
+        if(!empty($datas)){
+            foreach ($datas as $data) {
+                $post_id = Product_Import::check_post($data->sku);
+                if(!$post_id) {
+                    Product_Import::create($data);
+                }else{
+                    Product_Import::update($post_id, $data);
+                }
+            }
+        }
         //Product_Import::create();
     }
 }

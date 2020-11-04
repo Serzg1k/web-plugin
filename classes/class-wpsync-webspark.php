@@ -42,12 +42,15 @@ class Wpsync_Webspark
     {
         $data = $this->get_api_data();
         if ($data) {
-            set_transient('webspark', $data, 60);
+            return $data;
+//            set_transient('webspark', $data, 600);
+//            update_option('qwerty', $data);
         }
     }
 
+    // @todo need send data
     public function send_order_data($id=1){
-        $body = '[{"sku": "07faf775-9190-4737-b47d-112e6dc3f05a","items": 1}]';
+
         $request = $this->guzzle->post('order.json', [
             'json' => [
                 [

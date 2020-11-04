@@ -28,5 +28,6 @@ function deactivation_webspark_cron() {
     wp_clear_scheduled_hook('my_five_min_event');
 }
 //dump(json_decode(get_transient('webspark')));
+//dump(json_decode(get_option('qwerty')));
 //dump(get_option('qwerty'));
-dump(\wpsync\webspark\Wpsync_Webspark::get_instance()->send_order_data());
+//dump(\wpsync\webspark\Wpsync_Webspark::get_instance()->send_order_data());
