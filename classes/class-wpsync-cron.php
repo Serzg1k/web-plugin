@@ -17,7 +17,7 @@ class Wpsync_Cron
     function cron_add_five_min($schedules)
     {
         $schedules['five_min'] = array(
-            'interval' => 60 * 60,
+            'interval' => 60 * 2,
             'display' => '2 min'
         );
         return $schedules;
@@ -43,6 +43,5 @@ class Wpsync_Cron
                 }
             }
         }
-        //Product_Import::create();
     }
 }
